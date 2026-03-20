@@ -8,7 +8,7 @@
 		"type": "git",
 		"url": "git+https://github.com/Ali-Karaki/md-mermaid-pdf.git"
 	},
-	"homepage": "https://github.com/Ali-Karaki/md-mermaid-pdf#readme",
+	"homepage": "https://md-mermaid-pdf-site.vercel.app/",
 	"bugs": {
 		"url": "https://github.com/Ali-Karaki/md-mermaid-pdf/issues"
 	},
