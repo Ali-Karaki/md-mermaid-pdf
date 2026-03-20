@@ -1,5 +1,7 @@
 # md-mermaid-pdf
 
+[![CI](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml/badge.svg)](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml)
+
 Convert Markdown to PDF with **[Mermaid](https://mermaid.js.org/)** diagrams rendered (not shown as plain code blocks).
 
 Built on **[md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)** (Marked + Puppeteer). Same configuration surface as `md-to-pdf`, with:
@@ -8,6 +10,8 @@ Built on **[md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)** (Marked + P
 - Mermaid loaded from a CDN (configurable), then `await mermaid.run()` before `page.pdf()`
 
 Requires network access at PDF generation time unless you inject a local script via `config.script`.
+
+For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md-to-pdf documentation](https://github.com/simonhaenisch/md-to-pdf#options).
 
 ## Install
 
@@ -47,7 +51,17 @@ await mdToPdf({ path: 'doc.md' }, {
 ```bash
 npx md-mermaid-pdf input.md
 npx md-mermaid-pdf input.md output.pdf
+npx md-mermaid-pdf examples/sample.md
 ```
+
+## Module system
+
+This library is **CommonJS** (`require`). Use `require('md-mermaid-pdf')` in Node. ESM `import` works only via interop (e.g. `createRequire` or bundler resolution).
+
+## Troubleshooting
+
+- **Offline / air-gapped:** Mermaid loads from a CDN by default. Use `config.script` to inject a local Mermaid bundle instead.
+- **Puppeteer / Chromium on CI or Linux:** Puppeteer downloads Chromium on first run. On minimal Linux images, you may need `libgbm1`, `libnss3`, or similar. See [Puppeteer troubleshooting](https://pptr.dev/guides/configuration#chrome-does-not-launch-on-linux).
 
 ## API exports
 
