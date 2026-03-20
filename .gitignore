@@ -4,3 +4,7 @@ node_modules/
 .DS_Store
 examples/diagrams/
 examples/*.pdf
+.md-mermaid-pdf-cache/
+apps/playground/node_modules/
+apps/playground/dist/
+packages/vscode-md-mermaid-pdf/node_modules/

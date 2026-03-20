@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `mdToPdfAuto(inputPath, partialConfig?)` — zero-config: basedir, dest beside input, mermaidSource auto
+- CLI alias: `npx mmdpdf` (shorter than `md-mermaid-pdf`)
+- `docs/recipes.md` — integration snippets for Express, Next.js API route, GitHub Action
+- `mdToPdfFromFiles(paths, config, { separator })` — concatenate multiple .md files into one PDF
+- CLI `--concat a.md b.md -o book.pdf`; front-matter: only first file used (see [docs/compose.md](docs/compose.md))
+- `mdToPdfBatch` incremental mode: `{ incremental: true, cacheDir }` skips unchanged files; [docs/determinism.md](docs/determinism.md) documents PDF non-determinism
+- Richer Mermaid errors: include diagram count when multiple diagrams; `onMermaidError: (err, meta) => 'skip' | 'throw'` for soft-fail
+- `preset: 'slides'` — landscape, larger text, `---` as page breaks
+- `apps/playground` — Vite + React web demo (Mermaid preview; PDF export requires CLI)
+- `packages/vscode-md-mermaid-pdf` — VS Code extension scaffold (Export Markdown to PDF command)
 - Docker: `Dockerfile` and README section for containerized usage
 - GitHub Action: composite action in `action/` wrapping `npx md-mermaid-pdf`
 - `mermaidExportImages` — export Mermaid diagrams to PNG or SVG

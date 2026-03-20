@@ -1,0 +1,19 @@
+{
+  "name": "md-mermaid-pdf-export",
+  "displayName": "md-mermaid-pdf Export",
+  "description": "Export Markdown with Mermaid diagrams to PDF",
+  "version": "0.1.0",
+  "publisher": "ali-karaki",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "md-mermaid-pdf.export",
+        "title": "Export Markdown to PDF (Mermaid)"
+      }
+    ]
+  }
+}

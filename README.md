@@ -23,9 +23,9 @@ Requires network access at PDF generation time unless you inject a local script 
 For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md-to-pdf documentation](https://github.com/simonhaenisch/md-to-pdf#options).
 
 **Export Mermaid images:** `mermaidExportImages: 'out/diagrams'` or `{ dir: 'out', format: 'svg' }` saves each diagram as PNG (default) or SVG.
-**Fail on Mermaid error:** `failOnMermaidError: true` throws if Mermaid fails to parse a diagram (e.g. invalid syntax).
+**Fail on Mermaid error:** `failOnMermaidError: true` throws if Mermaid fails to parse a diagram (e.g. invalid syntax). Use `onMermaidError: (err, { diagramCount }) => 'skip'` to continue on error instead of throwing.
 **Table of contents:** `toc: true` prepends a heading-based TOC to the document.
-**Style presets:** `preset: 'github'` or `preset: 'minimal'` adds bundled CSS for a GitHub-like or minimal look.
+**Style presets:** `preset: 'github'`, `preset: 'minimal'`, or `preset: 'slides'` (landscape, full-page sections with `---` as slide breaks).
 
 ### Visual result
 
@@ -79,6 +79,13 @@ const { mdToPdf } = require('md-mermaid-pdf');
 })();
 ```
 
+**Zero-config:** `mdToPdfAuto('slides.md')` sets `basedir`, `dest` beside input, and `mermaidSource: 'auto'`:
+
+```javascript
+const { mdToPdfAuto } = require('md-mermaid-pdf');
+await mdToPdfAuto('slides.md');  // writes slides.pdf
+```
+
 (`convertMdToPdfMermaid` also writes when `dest` is a non-empty path, matching `md-to-pdf`.)
 
 Optional: override the Mermaid bundle URL, use bundled (offline), or pass Mermaid config:
@@ -104,6 +111,9 @@ await mdToPdf({ path: 'doc.md' }, { dest: 'doc.pdf', toc: true });
 
 // Style preset
 await mdToPdf({ path: 'doc.md' }, { dest: 'doc.pdf', preset: 'github' });
+
+// Slides: landscape, --- as slide breaks
+await mdToPdf({ path: 'slides.md' }, { dest: 'slides.pdf', preset: 'slides' });
 
 // Offline / CI: use bundled Mermaid (no network)
 await mdToPdf({ path: 'doc.md' }, {
@@ -138,9 +148,21 @@ await mdToPdf({ path: 'doc.md' }, {
 npx md-mermaid-pdf input.md
 npx md-mermaid-pdf input.md output.pdf
 npx md-mermaid-pdf input.md --watch   # rebuild on save
+npx md-mermaid-pdf slides.md --slides   # slides preset
 npx md-mermaid-pdf a.md b.md c.md   # batch: each writes alongside
+npx md-mermaid-pdf --concat a.md b.md -o book.pdf   # single PDF from multiple files
+npx mmdpdf input.md   # shorter alias
 npx md-mermaid-pdf examples/sample.md
 ```
+
+## Integration recipes
+
+See [docs/recipes.md](docs/recipes.md) for Express, Next.js API route, and GitHub Action snippets.
+
+## Playground and VS Code extension
+
+- **Playground:** `apps/playground` — Vite + React demo; paste Markdown, preview Mermaid (PDF export is mock; use CLI for real export)
+- **VS Code extension:** `packages/vscode-md-mermaid-pdf` — Command "Export Markdown to PDF (Mermaid)" for the active editor
 
 ## Module system
 
@@ -158,7 +180,9 @@ This library is **CommonJS** (`require`). Use `require('md-mermaid-pdf')` in Nod
 | Export | Purpose |
 |--------|---------|
 | `mdToPdf` | Main entry (default export), mirrors `md-to-pdf` + Mermaid |
-| `mdToPdfBatch` | Convert multiple files: `mdToPdfBatch(paths, config, { concurrency })` |
+| `mdToPdfAuto` | Zero-config: `mdToPdfAuto(path)` — basedir, dest, mermaidSource auto |
+| `mdToPdfFromFiles` | Concatenate files into one PDF: `mdToPdfFromFiles(paths, config, { separator })` — see [docs/compose.md](docs/compose.md) |
+| `mdToPdfBatch` | Convert multiple files: `mdToPdfBatch(paths, config, { concurrency, incremental, cacheDir })` — see [docs/determinism.md](docs/determinism.md) |
 | `DEFAULT_MERMAID_CDN_URL` | Default jsDelivr URL pinned in this package |
 | `createMermaidMarkedRenderer` | Marked renderer for ` ```mermaid ` only |
 | `convertMdToPdfMermaid` | Lower level: HTML → PDF with Mermaid wait (expects merged md-to-pdf config + `browser`) |

@@ -1,0 +1,23 @@
+/* Slides preset: full-page sections, landscape-friendly */
+body {
+	font-family: system-ui, -apple-system, sans-serif;
+	font-size: 24px;
+	line-height: 1.4;
+}
+
+/* hr (---) as slide break */
+hr {
+	page-break-after: always;
+	border: none;
+	margin: 0;
+}
+
+/* h1 starts new "slide" conceptually */
+h1 {
+	font-size: 2em;
+	margin-top: 0.5em;
+}
+
+.mermaid {
+	text-align: center;
+}
