@@ -2,7 +2,15 @@
 
 [![CI](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml/badge.svg)](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml)
 
-Convert Markdown to PDF with **[Mermaid](https://mermaid.js.org/)** diagrams rendered (not shown as plain code blocks).
+**Markdown to PDF with Mermaid diagrams that actually render** — not shown as plain code blocks. Fixes the common issue of [Mermaid not rendering in PDFs](https://github.com/simonhaenisch/md-to-pdf/issues) when using markdown-to-pdf tools.
+
+### Why not md-to-pdf?
+
+| Feature | md-to-pdf | md-mermaid-pdf |
+|---------|-----------|----------------|
+| Mermaid diagrams rendered | No (shows as code) | Yes |
+| Same config surface | — | Yes (drop-in) |
+| Zero extra setup for Mermaid | — | Yes |
 
 Built on **[md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)** (Marked + Puppeteer). Same configuration surface as `md-to-pdf`, with:
 
@@ -12,6 +20,15 @@ Built on **[md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)** (Marked + P
 Requires network access at PDF generation time unless you inject a local script via `config.script`.
 
 For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md-to-pdf documentation](https://github.com/simonhaenisch/md-to-pdf#options).
+
+### Visual result
+
+| Before (md-to-pdf) | After (md-mermaid-pdf) |
+|--------------------|------------------------|
+| Mermaid shown as code block | Diagram rendered in PDF |
+| ![Before](assets/before-code-block.svg) | ![After](assets/after-rendered.svg) |
+
+Run `npx md-mermaid-pdf examples/sample.md` to see the output.
 
 ## Install
 
