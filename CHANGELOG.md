@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Playground removed from this repo** — the Vite marketing + demo app now lives in [**md-mermaid-pdf-site**](https://github.com/Ali-Karaki/md-mermaid-pdf-site). CI workflow `playground.yml` removed; use that repository’s workflow instead.
+
 ### Added
 
 - CLI `--theme`, `--mermaid-source`, `--document-theme` — Mermaid theme and source selection
@@ -21,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Examples: `report/report.md`, docs/slides README pointers
 - `scripts/capture-readme-assets.mjs` — generate sample.pdf and PNG screenshots (poppler)
 - NestJS recipe in [docs/recipes.md](docs/recipes.md)
-- Playground: optional local PDF API (`npm run dev:api`) + `VITE_PDF_API=1` for real PDF export
+- Marketing site (now **md-mermaid-pdf-site** repo): optional local PDF API (`npm run dev:api`) + `VITE_PDF_API=1` for real PDF export from the demo UI
 - `mdToPdfAuto(inputPath, partialConfig?)` — zero-config: basedir, dest beside input, mermaidSource auto
 - CLI alias: `npx mmdpdf` (shorter than `md-mermaid-pdf`)
 - `docs/recipes.md` — integration snippets for Express, Next.js API route, GitHub Action
@@ -30,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `mdToPdfBatch` incremental mode: `{ incremental: true, cacheDir }` skips unchanged files; [docs/determinism.md](docs/determinism.md) documents PDF non-determinism
 - Richer Mermaid errors: include diagram count when multiple diagrams; `onMermaidError: (err, meta) => 'skip' | 'throw'` for soft-fail
 - `preset: 'slides'` — landscape, larger text, `---` as page breaks
-- `apps/playground` — Vite + React web demo (Mermaid preview; PDF export requires CLI)
+- Vite + React web demo — see **md-mermaid-pdf-site** repository (Mermaid preview; real PDF from browser needs local API + CLI stack)
 - `packages/vscode-md-mermaid-pdf` — VS Code extension scaffold (Export Markdown to PDF command)
 - Docker: `Dockerfile` and README section for containerized usage
 - GitHub Action: composite action in `action/` wrapping `npx md-mermaid-pdf`

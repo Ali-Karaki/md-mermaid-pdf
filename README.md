@@ -192,9 +192,9 @@ md_mermaid_pdf:
 
 See [docs/recipes.md](docs/recipes.md) for Express, Next.js API route, and GitHub Action snippets.
 
-## Playground and VS Code extension
+## Marketing site and VS Code extension
 
-- **Playground:** `apps/playground` — Vite + React demo; Vercel/Stripe-style marketing site with hero, demo, and marketing sections. Paste Markdown, preview Mermaid. For real PDF export from the playground, run `npm run dev:api` in `apps/playground` (starts a local PDF API) and `VITE_PDF_API=1 npm run dev` — requires Node + Chromium; not for static-only deploy unless you host the API separately.
+- **Marketing site / live demo:** [md-mermaid-pdf-site](https://github.com/Ali-Karaki/md-mermaid-pdf-site) — Vite + React; hero, interactive Markdown + Mermaid preview, and marketing sections. Clone that repo and run `npm ci && npm run dev`. Optional local PDF from the UI: `npm run dev:api` plus `VITE_PDF_API=1 npm run dev` (requires Node + Chromium via the `md-mermaid-pdf` package).
 - **VS Code extension:** `packages/vscode-md-mermaid-pdf` — Command "Export Markdown to PDF (Mermaid)" for the active editor
 
 ## Module system
