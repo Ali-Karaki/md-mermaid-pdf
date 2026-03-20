@@ -51,12 +51,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Package keywords: mermaid-diagrams, markdown-to-pdf, docs-generator, diagram-rendering
 - Stronger README tagline
 - README: "Why not md-to-pdf?" comparison table and SEO phrasing for mermaid-not-rendering-pdf
-- README: Visual result section with before/after assets
 - Examples: docs/ and slides/ templates with mermaid diagrams
 - Smart Mermaid detection: skip Mermaid script when markdown has no ` ```mermaid ` block (faster, no network)
 - `mermaidSource: 'cdn' | 'bundled' | 'auto'` — use bundled Mermaid for offline/CI (no network)
 - `mermaid` package as dependency for bundled mode
 - `mermaidConfig` — pass options to `mermaid.initialize()` (theme, flowchart, etc.)
+
+## [0.1.3] - 2026-03-21
+
+### Removed
+
+- README “Visual result” / before–after comparison; `assets/before-code-block.svg` and `assets/after-rendered.svg`
 
 ## [0.1.2] - 2026-03-21
 
@@ -81,7 +86,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLI and programmatic API (`mdToPdf`)
 - Configurable Mermaid CDN URL
 
-[Unreleased]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Ali-Karaki/md-mermaid-pdf/releases/tag/v0.1.0
