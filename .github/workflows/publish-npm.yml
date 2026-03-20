@@ -7,6 +7,15 @@
 # If you set a GitHub *Environment* in the npm Trusted Publisher form, add the same here:
 #   jobs.publish.environment: <name>
 #
+# npm Trusted Publisher (Edit on npmjs.com) must match GitHub exactly:
+#   - Owner: GitHub username/org with correct casing (e.g. Ali-Karaki), not only lowercase.
+#   - Repository: repo *name* only (md-mermaid-pdf), not the full https://github.com/... URL.
+#   - Workflow file: publish-npm.yml (exact; .yml not .yaml unless you registered .yaml).
+#
+# The log block "GITHUB_TOKEN Permissions: Contents/Metadata" does NOT show id-token;
+# OIDC is separate. ENEEDAUTH with clean YAML usually means claim mismatch on npm or
+# npm/cli misleading errors — https://github.com/npm/cli/issues/9088
+#
 # Package engines vs this job: Node 24 + latest npm satisfies Trusted Publishing
 # (npm ≥11.5.1, Node ≥22.14) — https://docs.npmjs.com/trusted-publishers
 name: Publish to npm
@@ -25,6 +34,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Confirm GitHub OIDC is available
+        run: |
+          if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ] || [ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" ]; then
+            echo "::error::OIDC env missing. Add workflow permissions id-token: write (org policy can block OIDC)."
+            exit 1
+          fi
+          echo "OIDC available. If npm publish still returns ENEEDAUTH, fix Trusted Publisher on npm (owner casing, repo name only, workflow file, environment)."
 
       # No registry-url: it wires NODE_AUTH_TOKEN (GitHub token) into npmrc → publish uses
       # that instead of OIDC and the registry returns bogus E404. For private npm deps,
