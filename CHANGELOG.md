@@ -10,6 +10,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `mermaidExportImages` — export Mermaid diagrams to PNG or SVG
+- `failOnMermaidError: true` — throw on Mermaid parse errors
+- `toc: true` — heading-based table of contents
+- Style presets: `preset: 'github'` and `preset: 'minimal'` for bundled CSS
+- CLI `--watch` — rebuild PDF on file change
+- `mdToPdfBatch(paths, config, { concurrency })` — batch conversion
+- CLI: multiple input files `md-mermaid-pdf a.md b.md`
+- `beforeRender(page)`, `afterRender(page)` — async hooks for injecting CSS, tweak DOM
+- `debug: true` — write intermediate HTML to `.md-mermaid-pdf-debug.html`, log Mermaid errors to stderr
+- `mermaidWaitUntil`, `mermaidRenderTimeoutMs` — tune Mermaid render wait for CI-safe builds
+- Package keywords: mermaid-diagrams, markdown-to-pdf, docs-generator, diagram-rendering
+- Stronger README tagline
+- README: "Why not md-to-pdf?" comparison table and SEO phrasing for mermaid-not-rendering-pdf
+- README: Visual result section with before/after assets
+- Examples: docs/ and slides/ templates with mermaid diagrams
+- Smart Mermaid detection: skip Mermaid script when markdown has no ` ```mermaid ` block (faster, no network)
+- `mermaidSource: 'cdn' | 'bundled' | 'auto'` — use bundled Mermaid for offline/CI (no network)
+- `mermaid` package as dependency for bundled mode
+- `mermaidConfig` — pass options to `mermaid.initialize()` (theme, flowchart, etc.)
 
 ## [0.1.1] - 2025-03-20
 
