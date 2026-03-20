@@ -11,6 +11,8 @@ Requires network access at PDF generation time unless you inject a local script 
 
 ## Install
 
+Requires **Node ≥ 20.16** and **npm ≥ 10.8** (see `engines` in `package.json`).
+
 ```bash
 npm install md-mermaid-pdf
 ```

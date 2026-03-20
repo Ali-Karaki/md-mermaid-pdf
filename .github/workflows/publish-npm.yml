@@ -2,7 +2,8 @@
 # No NPM_TOKEN — configure the workflow + repo on the package's npm "Access" page.
 # Skips if this version is already on the registry (docs-only merges stay green).
 #
-# Requires: npm CLI ≥ 11.5.1, Node ≥ 22.14 — see https://docs.npmjs.com/trusted-publishers
+# Package engines: Node ≥20.16, npm ≥10.8 (package.json). This job uses Node 24 because
+# npm Trusted Publishing needs npm ≥11.5.1 and Node ≥22.14 — https://docs.npmjs.com/trusted-publishers
 name: Publish to npm
 
 on:
