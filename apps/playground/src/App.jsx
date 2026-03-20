@@ -5,6 +5,7 @@ const MotionSection = motion.section
 const MotionLi = motion.li
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { DemoSection } from '@/components/DemoSection'
 
 const NPM_URL = 'https://www.npmjs.com/package/md-mermaid-pdf'
 const GITHUB_URL = 'https://github.com/Ali-Karaki/md-mermaid-pdf'
@@ -84,7 +85,9 @@ export default function App() {
           </Card>
         </MotionSection>
 
-        <div id="demo" className="h-24 shrink-0" aria-hidden />
+        <div className="w-full px-6">
+          <DemoSection />
+        </div>
       </main>
 
       <footer className="border-t border-border/60 py-6 px-6">
