@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `mermaidSource: 'cdn' | 'bundled' | 'auto'` — use bundled Mermaid for offline/CI (no network)
+- `mermaid` package as dependency for bundled mode
+
 ## [0.1.1] - 2025-03-20
 
 ### Changed
