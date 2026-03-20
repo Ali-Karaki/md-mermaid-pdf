@@ -87,3 +87,55 @@ Or with local package (no npm publish):
 ```
 
 For offline / no CDN, add `mermaidSource: 'bundled'` via config or use the API directly in a custom step.
+
+## NestJS (controller + buffer)
+
+```typescript
+// pdf.controller.ts
+import { Controller, Post, Body, Res } from '@nestjs/common';
+import { Response } from 'express';
+import { mdToPdf } from 'md-mermaid-pdf';
+
+@Controller('pdf')
+export class PdfController {
+  @Post()
+  async generatePdf(
+    @Body() body: { markdown: string; mermaidConfig?: object; documentTheme?: string },
+    @Res() res: Response,
+  ) {
+    if (!body?.markdown) {
+      return res.status(400).json({ error: 'markdown required' });
+    }
+    const result = await mdToPdf(
+      { content: body.markdown },
+      {
+        dest: '',
+        mermaidConfig: body.mermaidConfig,
+        documentTheme: body.documentTheme,
+      },
+    );
+    if (!result?.content) {
+      return res.status(500).json({ error: 'PDF generation failed' });
+    }
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename="document.pdf"');
+    res.send(result.content);
+  }
+}
+```
+
+Or for file-based conversion:
+
+```typescript
+import { mdToPdf } from 'md-mermaid-pdf';
+import path from 'path';
+
+// In your service or controller
+const mdPath = path.join(__dirname, 'docs', 'readme.md');
+const result = await mdToPdf(
+  { path: mdPath },
+  { dest: '', basedir: path.dirname(mdPath) },
+);
+res.setHeader('Content-Type', 'application/pdf');
+res.send(result.content);
+```

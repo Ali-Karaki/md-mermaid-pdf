@@ -2,9 +2,15 @@ import type { Browser } from 'puppeteer';
 
 export type MdMermaidPdfInput = { content: string } | { path: string };
 
-/** Same shape as md-to-pdf config, plus optional Mermaid CDN override (not passed to md-to-pdf). */
+/** Same shape as md-to-pdf config, plus optional md-mermaid-pdf options. */
 export type MdMermaidPdfConfig = Record<string, unknown> & {
 	mermaidCdnUrl?: string;
+	mermaidSource?: 'cdn' | 'bundled' | 'auto';
+	mermaidConfig?: Record<string, unknown>;
+	documentTheme?: 'light' | 'dark';
+	outputCache?: boolean | { dir?: string };
+	hashOutput?: boolean;
+	mermaidAutofix?: boolean;
 };
 
 export const DEFAULT_MERMAID_CDN_URL: string;

@@ -1,7 +1,7 @@
 {
 	"name": "md-mermaid-pdf",
 	"version": "0.1.1",
-	"description": "Markdown to PDF with Mermaid diagrams via Puppeteer (builds on md-to-pdf).",
+	"description": "Markdown to PDF with Mermaid diagrams that actually render — drop-in replacement for md-to-pdf.",
 	"license": "MIT",
 	"author": "Ali Karaki (https://github.com/Ali-Karaki)",
 	"repository": {
@@ -41,13 +41,15 @@
 		"presets"
 	],
 	"scripts": {
-		"test": "node --test test/"
+		"test": "node --test test/",
+		"capture-readme-assets": "node scripts/capture-readme-assets.mjs"
 	},
 	"engines": {
 		"node": ">=20.16.0",
 		"npm": ">=10.8.1"
 	},
 	"dependencies": {
+		"fast-glob": "^3.3.3",
 		"get-port": "^5.1.1",
 		"marked": "^4.3.0",
 		"md-to-pdf": "^5.2.5",

@@ -80,6 +80,7 @@ export function DemoSection() {
           </CardHeader>
           <CardContent className="pt-0">
             <SettingsPanel
+              markdown={md}
               pdfFormat={pdfFormat}
               onPdfFormatChange={setPdfFormat}
               pageTheme={pageTheme}
@@ -127,6 +128,7 @@ export function DemoSection() {
             <Card>
               <CardContent className="p-4">
                 <SettingsPanel
+                  markdown={md}
                   pdfFormat={pdfFormat}
                   onPdfFormatChange={setPdfFormat}
                   pageTheme={pageTheme}
