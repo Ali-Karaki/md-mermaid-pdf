@@ -79,6 +79,15 @@ await mdToPdf({ path: 'doc.md' }, {
     flowchart: { curve: 'basis' },
   },
 });
+
+// Page hooks: inject CSS, tweak DOM before/after PDF
+await mdToPdf({ path: 'doc.md' }, {
+  dest: 'doc.pdf',
+  basedir: __dirname,
+  async beforeRender(page) {
+    await page.addStyleTag({ content: 'body { font-size: 14px; }' });
+  },
+});
 ```
 
 ## CLI
