@@ -1,0 +1,20 @@
+name: 'md-mermaid-pdf'
+description: 'Convert Markdown to PDF with Mermaid diagrams rendered'
+inputs:
+  input:
+    description: 'Input markdown file path'
+    required: true
+  output:
+    description: 'Output PDF path (optional, defaults to input with .pdf extension)'
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - name: Convert Markdown to PDF
+      run: |
+        if [ -n "${{ inputs.output }}" ]; then
+          npx md-mermaid-pdf "${{ inputs.input }}" "${{ inputs.output }}"
+        else
+          npx md-mermaid-pdf "${{ inputs.input }}"
+        fi
+      shell: bash
