@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Docs:** live demo links and **`package.json` `homepage`** point at the **Railway** deployment (not Vercel); marketing-site section matches **`dev:api` + Vite proxy** (no `VITE_PDF_API`)
 - **Playground removed from this repo** — the Vite marketing + demo app now lives in [**md-mermaid-pdf-site**](https://github.com/Ali-Karaki/md-mermaid-pdf-site). CI workflow `playground.yml` removed; use that repository’s workflow instead.
 
 ### Added
@@ -25,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Examples: `report/report.md`, docs/slides README pointers
 - `scripts/capture-readme-assets.mjs` — generate sample.pdf and PNG screenshots (poppler)
 - NestJS recipe in [docs/recipes.md](docs/recipes.md)
-- Marketing site (now **md-mermaid-pdf-site** repo): optional local PDF API (`npm run dev:api`) + `VITE_PDF_API=1` for real PDF export from the demo UI
+- Marketing site (now **md-mermaid-pdf-site** repo): optional local PDF API (`npm run dev:api` + `npm run dev` with Vite `/api` proxy); production deploy on Railway (Docker) serves `/api/pdf`
 - `mdToPdfAuto(inputPath, partialConfig?)` — zero-config: basedir, dest beside input, mermaidSource auto
 - CLI alias: `npx mmdpdf` (shorter than `md-mermaid-pdf`)
 - `docs/recipes.md` — integration snippets for Express, Next.js API route, GitHub Action
