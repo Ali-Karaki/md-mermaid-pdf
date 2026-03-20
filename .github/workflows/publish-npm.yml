@@ -20,10 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # No registry-url here: setup-node would set NODE_AUTH_TOKEN (GitHub token) for
+      # registry.npmjs.org and npm publish would use that instead of OIDC → bogus E404.
+      # All dependencies are public; add registry-url + NPM_READ_TOKEN only if you need private packages.
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          registry-url: https://registry.npmjs.org
 
       - run: npm ci
 

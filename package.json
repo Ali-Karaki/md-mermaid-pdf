@@ -6,7 +6,7 @@
 	"author": "",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Ali-Karaki/md-mermaid-pdf.git"
+		"url": "git+https://github.com/Ali-Karaki/md-mermaid-pdf.git"
 	},
 	"keywords": [
 		"markdown",
