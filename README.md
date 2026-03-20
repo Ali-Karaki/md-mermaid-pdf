@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml/badge.svg)](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml)
 
+**Live demo:** [md-mermaid-pdf-site.vercel.app](https://md-mermaid-pdf-site.vercel.app/)
+
 **Markdown to PDF with Mermaid diagrams that actually render** — a drop-in replacement for md-to-pdf. No more Mermaid shown as plain code blocks; diagrams render in the final PDF.
 
 ### Why not md-to-pdf?
