@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- CLI `--watch` — rebuild PDF on file change
 - `mdToPdfBatch(paths, config, { concurrency })` — batch conversion
 - CLI: multiple input files `md-mermaid-pdf a.md b.md`
 - `beforeRender(page)`, `afterRender(page)` — async hooks for injecting CSS, tweak DOM

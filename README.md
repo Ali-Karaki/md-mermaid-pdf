@@ -95,6 +95,7 @@ await mdToPdf({ path: 'doc.md' }, {
 ```bash
 npx md-mermaid-pdf input.md
 npx md-mermaid-pdf input.md output.pdf
+npx md-mermaid-pdf input.md --watch   # rebuild on save
 npx md-mermaid-pdf a.md b.md c.md   # batch: each writes alongside
 npx md-mermaid-pdf examples/sample.md
 ```
