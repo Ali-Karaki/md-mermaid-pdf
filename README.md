@@ -44,6 +44,15 @@ await mdToPdf({ path: 'doc.md' }, {
   basedir: __dirname,
   mermaidCdnUrl: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js',
 });
+
+// Page hooks: inject CSS, tweak DOM before/after PDF
+await mdToPdf({ path: 'doc.md' }, {
+  dest: 'doc.pdf',
+  basedir: __dirname,
+  async beforeRender(page) {
+    await page.addStyleTag({ content: 'body { font-size: 14px; }' });
+  },
+});
 ```
 
 ## CLI
