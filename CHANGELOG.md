@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `failOnMermaidError: true` — throw on Mermaid parse errors
 - `toc: true` — heading-based table of contents
 - Style presets: `preset: 'github'` and `preset: 'minimal'` for bundled CSS
 - CLI `--watch` — rebuild PDF on file change

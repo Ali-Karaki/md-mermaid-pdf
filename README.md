@@ -22,6 +22,7 @@ Requires network access at PDF generation time unless you inject a local script 
 
 For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md-to-pdf documentation](https://github.com/simonhaenisch/md-to-pdf#options).
 
+**Fail on Mermaid error:** `failOnMermaidError: true` throws if Mermaid fails to parse a diagram (e.g. invalid syntax).
 **Table of contents:** `toc: true` prepends a heading-based TOC to the document.
 **Style presets:** `preset: 'github'` or `preset: 'minimal'` adds bundled CSS for a GitHub-like or minimal look.
 
@@ -65,6 +66,9 @@ await mdToPdf({ path: 'doc.md' }, {
   basedir: __dirname,
   mermaidCdnUrl: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js',
 });
+
+// Throw on Mermaid parse errors
+await mdToPdf({ path: 'doc.md' }, { dest: 'doc.pdf', failOnMermaidError: true });
 
 // Table of contents
 await mdToPdf({ path: 'doc.md' }, { dest: 'doc.pdf', toc: true });
