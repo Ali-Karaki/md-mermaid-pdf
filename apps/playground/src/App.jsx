@@ -25,6 +25,12 @@ const trustBullets = [
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <a
+        href="#demo"
+        className="fixed left-4 top-4 z-[100] -translate-x-[200vw] rounded-md bg-primary px-4 py-2 text-primary-foreground shadow-md outline-none ring-2 ring-ring transition-transform duration-200 focus:translate-x-0 focus:outline-none"
+      >
+        Skip to demo
+      </a>
       <main className="flex-1 flex flex-col items-center px-6 py-16 md:py-24">
         <MotionSection
           className="text-center max-w-2xl mx-auto"
@@ -43,7 +49,7 @@ export default function App() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center mt-8">
             <Button size="lg" onClick={scrollToDemo}>
-              Try the demo
+              Try it live
             </Button>
             <Button variant="outline" size="lg" asChild>
               <a href={NPM_URL} target="_blank" rel="noopener noreferrer">
@@ -98,7 +104,7 @@ export default function App() {
       <footer className="border-t border-border/60 py-6 px-6">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <span>MIT · Open source</span>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-6">
             <a
               href={NPM_URL}
               target="_blank"
@@ -116,6 +122,30 @@ export default function App() {
             >
               <Github className="size-4" />
               GitHub
+            </a>
+            <a
+              href={`${GITHUB_URL}/issues`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Issues
+            </a>
+            <a
+              href={`${GITHUB_URL}/blob/main/CHANGELOG.md`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Changelog
+            </a>
+            <a
+              href={`${GITHUB_URL}/blob/main/docs/recipes.md`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Recipes
             </a>
           </div>
         </div>

@@ -1,6 +1,17 @@
 export const SAMPLE_MD = `# Project Architecture
 
-This document shows a simple service flow.
+This document shows a simple service flow and a release sequence.
+
+- Renders **Mermaid** in the preview
+- Same fenced blocks work with the CLI for PDF
+
+## Stack
+
+\`\`\`text
+Markdown → HTML → Mermaid.run() → Puppeteer → PDF
+\`\`\`
+
+## Service flow
 
 \`\`\`mermaid
 flowchart TD
@@ -9,7 +20,7 @@ flowchart TD
     C --> D[Database]
 \`\`\`
 
-## Release Flow
+## Release flow
 
 \`\`\`mermaid
 sequenceDiagram

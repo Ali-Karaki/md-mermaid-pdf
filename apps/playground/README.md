@@ -2,6 +2,8 @@
 
 A minimal web demo for md-mermaid-pdf. Paste Markdown with Mermaid blocks and preview rendered output. Use the CLI for PDF generation, or run the optional local PDF API for real PDF export from the UI.
 
+This app implements [docs/website-prompt-exhaustive.md](../../docs/website-prompt-exhaustive.md); deploy from this directory (e.g. Vercel/Netlify root = `apps/playground`).
+
 ## Run
 
 ```bash
