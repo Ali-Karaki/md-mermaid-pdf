@@ -1,0 +1,42 @@
+{
+	"name": "md-mermaid-pdf",
+	"version": "0.1.0",
+	"description": "Markdown to PDF with Mermaid diagrams via Puppeteer (builds on md-to-pdf).",
+	"license": "MIT",
+	"author": "",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Ali-Karaki/md-mermaid-pdf.git"
+	},
+	"keywords": [
+		"markdown",
+		"pdf",
+		"mermaid",
+		"md-to-pdf",
+		"puppeteer"
+	],
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./lib/index.d.ts",
+			"default": "./lib/index.js"
+		}
+	},
+	"bin": {
+		"md-mermaid-pdf": "bin/cli.js"
+	},
+	"files": [
+		"lib",
+		"bin"
+	],
+	"engines": {
+		"node": ">=16"
+	},
+	"dependencies": {
+		"get-port": "^5.1.1",
+		"marked": "^4.3.0",
+		"md-to-pdf": "^5.2.5",
+		"puppeteer": ">=8.0.0"
+	}
+}
