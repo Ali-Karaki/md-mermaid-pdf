@@ -62,6 +62,7 @@ This library is **CommonJS** (`require`). Use `require('md-mermaid-pdf')` in Nod
 
 - **Offline / air-gapped:** Mermaid loads from a CDN by default. Use `config.script` to inject a local Mermaid bundle instead.
 - **Puppeteer / Chromium on CI or Linux:** Puppeteer downloads Chromium on first run. On minimal Linux images, you may need `libgbm1`, `libnss3`, or similar. See [Puppeteer troubleshooting](https://pptr.dev/guides/configuration#chrome-does-not-launch-on-linux).
+- **Debug:** `debug: true` writes intermediate HTML to `.md-mermaid-pdf-debug.html` and logs Mermaid errors to stderr.
 
 ## API exports
 

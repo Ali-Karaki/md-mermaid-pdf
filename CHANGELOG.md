@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `debug: true` — write intermediate HTML to `.md-mermaid-pdf-debug.html`, log Mermaid errors to stderr
+
 ## [0.1.1] - 2025-03-20
 
 ### Changed
