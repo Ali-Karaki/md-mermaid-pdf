@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Package keywords: mermaid-diagrams, markdown-to-pdf, docs-generator, diagram-rendering
+- Stronger README tagline
+- README: "Why not md-to-pdf?" comparison table and SEO phrasing for mermaid-not-rendering-pdf
+- README: Visual result section with before/after assets
+- Examples: docs/ and slides/ templates with mermaid diagrams
+- Smart Mermaid detection: skip Mermaid script when markdown has no ` ```mermaid ` block (faster, no network)
+- `mermaidSource: 'cdn' | 'bundled' | 'auto'` — use bundled Mermaid for offline/CI (no network)
+- `mermaid` package as dependency for bundled mode
 - `mermaidConfig` — pass options to `mermaid.initialize()` (theme, flowchart, etc.)
 
 ## [0.1.1] - 2025-03-20
