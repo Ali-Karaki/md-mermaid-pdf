@@ -34,13 +34,6 @@ For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md
 **Table of contents:** `toc: true` prepends a heading-based TOC to the document.
 **Style presets:** `preset: 'github'`, `preset: 'minimal'`, or `preset: 'slides'` (landscape, full-page sections with `---` as slide breaks).
 
-### Visual result
-
-| Before (md-to-pdf) | After (md-mermaid-pdf) |
-|--------------------|------------------------|
-| Mermaid shown as code block | Diagram rendered in PDF |
-| ![Before](https://raw.githubusercontent.com/Ali-Karaki/md-mermaid-pdf/main/assets/before-code-block.svg) | ![After](https://raw.githubusercontent.com/Ali-Karaki/md-mermaid-pdf/main/assets/after-rendered.svg) |
-
 Run `npx md-mermaid-pdf examples/sample.md` to see the output. Maintainers: `npm run capture-readme-assets` generates `examples/sample.pdf` and, with [poppler](https://poppler.freedesktop.org/) installed, `assets/readme-sample.png` for README use.
 
 ## Docker
