@@ -1,0 +1,15 @@
+/* Minimal preset: clean, light, minimal decoration */
+body {
+	font-family: Georgia, serif;
+	color: #333;
+}
+
+pre {
+	background-color: #fafafa;
+	border: none;
+}
+
+blockquote {
+	border-left-width: 2px;
+	border-left-color: #ccc;
+}
