@@ -1,0 +1,41 @@
+# Publishes to npm when `main` is updated. Skips if `package.json` version
+# already exists on the registry (so docs-only merges stay green).
+#
+# Setup: Repo → Settings → Secrets and variables → Actions → New repository secret
+#   Name:  NPM_TOKEN
+#   Value: npm granular access token (type Automation) with publish permission.
+#   https://docs.npmjs.com/about-access-tokens
+name: Publish to npm
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: https://registry.npmjs.org
+
+      - run: npm ci
+
+      - name: Publish if version is new
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -e
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "${NAME}@${VERSION}" version >/dev/null 2>&1; then
+            echo "${NAME}@${VERSION} is already on npm — skipping publish."
+            exit 0
+          fi
+          npm publish --access public
