@@ -5,7 +5,7 @@
 
 | | |
 |--|--|
-| **Live demo** | [md-mermaid-pdf-site.vercel.app](https://md-mermaid-pdf-site.vercel.app/) |
+| **Live demo** | [md-mermaid-pdf-site on Railway](https://md-mermaid-pdf-site-production.up.railway.app/) (update if you use a custom domain) |
 | **Repository** | [github.com/Ali-Karaki/md-mermaid-pdf](https://github.com/Ali-Karaki/md-mermaid-pdf) |
 | **Issues** | [github.com/Ali-Karaki/md-mermaid-pdf/issues](https://github.com/Ali-Karaki/md-mermaid-pdf/issues) |
 
@@ -194,7 +194,7 @@ See [docs/recipes.md](https://github.com/Ali-Karaki/md-mermaid-pdf/blob/main/doc
 
 ## Marketing site and VS Code extension
 
-- **Marketing site / live demo:** **[md-mermaid-pdf-site.vercel.app](https://md-mermaid-pdf-site.vercel.app/)** (source: [md-mermaid-pdf-site](https://github.com/Ali-Karaki/md-mermaid-pdf-site)) — Vite + React; hero, interactive Markdown + Mermaid preview, and marketing sections. Clone that repo and run `npm ci && npm run dev`. Optional local PDF from the UI: `npm run dev:api` plus `VITE_PDF_API=1 npm run dev` (requires Node + Chromium via the `md-mermaid-pdf` package).
+- **Marketing site / live demo:** **[Railway deployment](https://md-mermaid-pdf-site-production.up.railway.app/)** (source: [md-mermaid-pdf-site](https://github.com/Ali-Karaki/md-mermaid-pdf-site)) — Vite + React; hero, interactive Markdown + Mermaid preview, and marketing sections. Clone that repo and run `npm ci && npm run dev`. **Download PDF** in production uses the Docker image; locally use `npm run dev:api` in one terminal and `npm run dev` in another (Vite proxies `/api`; no env flag).
 - **VS Code extension:** `packages/vscode-md-mermaid-pdf` — Command "Export Markdown to PDF (Mermaid)" for the active editor
 
 ## Module system
@@ -204,7 +204,7 @@ This library is **CommonJS** (`require`). Use `require('md-mermaid-pdf')` in Nod
 ## Troubleshooting
 
 - **Offline / air-gapped:** Mermaid loads from a CDN by default. Use `config.script` to inject a local Mermaid bundle instead.
-- **Puppeteer / Chromium on CI or Linux:** Puppeteer downloads Chromium on first run. On minimal Linux images, you may need `libgbm1`, `libnss3`, or similar. See [Puppeteer troubleshooting](https://pptr.dev/guides/configuration#chrome-does-not-launch-on-linux).
+- **Puppeteer / Chromium on CI or Linux:** Puppeteer downloads Chromium on first run. On minimal Linux images, you may need `libgbm1`, `libnss3`, or similar. In **Docker** or when the process runs as **root**, add launch args such as `--no-sandbox` and `--disable-setuid-sandbox` (see [Puppeteer troubleshooting](https://pptr.dev/troubleshooting)).
 - **Debug:** `debug: true` writes intermediate HTML to `.md-mermaid-pdf-debug.html` and logs Mermaid errors to stderr.
 - **CI / flaky renders:** Use `mermaidWaitUntil: 'domcontentloaded'` or `mermaidRenderTimeoutMs: 10000` to tune wait behavior.
 
