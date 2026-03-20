@@ -161,7 +161,7 @@ See [docs/recipes.md](docs/recipes.md) for Express, Next.js API route, and GitHu
 
 ## Playground and VS Code extension
 
-- **Playground:** `apps/playground` — Vite + React demo; paste Markdown, preview Mermaid (PDF export is mock; use CLI for real export)
+- **Playground:** `apps/playground` — Vite + React demo; Vercel/Stripe-style marketing site with hero, demo, and marketing sections. Paste Markdown, preview Mermaid (PDF export is mock; use CLI for real export)
 - **VS Code extension:** `packages/vscode-md-mermaid-pdf` — Command "Export Markdown to PDF (Mermaid)" for the active editor
 
 ## Module system
