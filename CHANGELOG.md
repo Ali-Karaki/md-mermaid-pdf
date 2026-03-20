@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README: Visual result section with before/after assets
 - Examples: docs/ and slides/ templates with mermaid diagrams
 - Smart Mermaid detection: skip Mermaid script when markdown has no ` ```mermaid ` block (faster, no network)
+- `mermaidSource: 'cdn' | 'bundled' | 'auto'` — use bundled Mermaid for offline/CI (no network)
+- `mermaid` package as dependency for bundled mode
 
 ## [0.1.1] - 2025-03-20
 
