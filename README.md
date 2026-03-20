@@ -13,6 +13,8 @@ Requires network access at PDF generation time unless you inject a local script 
 
 For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md-to-pdf documentation](https://github.com/simonhaenisch/md-to-pdf#options).
 
+**Table of contents:** `toc: true` prepends a heading-based TOC to the document.
+
 ## Install
 
 Requires **Node ≥ 20.16** and **npm ≥ 10.8** (see `engines` in `package.json`).
@@ -44,6 +46,9 @@ await mdToPdf({ path: 'doc.md' }, {
   basedir: __dirname,
   mermaidCdnUrl: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js',
 });
+
+// Table of contents
+await mdToPdf({ path: 'doc.md' }, { dest: 'doc.pdf', toc: true });
 ```
 
 ## CLI
