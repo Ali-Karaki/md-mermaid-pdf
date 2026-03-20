@@ -36,13 +36,23 @@ const { mdToPdf } = require('md-mermaid-pdf');
 
 (`convertMdToPdfMermaid` also writes when `dest` is a non-empty path, matching `md-to-pdf`.)
 
-Optional: override the Mermaid bundle URL:
+Optional: override the Mermaid bundle URL or pass Mermaid config:
 
 ```javascript
 await mdToPdf({ path: 'doc.md' }, {
   dest: 'doc.pdf',
   basedir: __dirname,
   mermaidCdnUrl: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js',
+});
+
+// Customize Mermaid (theme, flowchart, etc.)
+await mdToPdf({ path: 'doc.md' }, {
+  dest: 'doc.pdf',
+  basedir: __dirname,
+  mermaidConfig: {
+    theme: 'dark',
+    flowchart: { curve: 'basis' },
+  },
 });
 ```
 

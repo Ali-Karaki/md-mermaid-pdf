@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `mermaidConfig` — pass options to `mermaid.initialize()` (theme, flowchart, etc.)
+
 ## [0.1.1] - 2025-03-20
 
 ### Changed
