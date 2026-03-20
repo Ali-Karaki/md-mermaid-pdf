@@ -58,6 +58,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `mermaid` package as dependency for bundled mode
 - `mermaidConfig` — pass options to `mermaid.initialize()` (theme, flowchart, etc.)
 
+## [0.1.2] - 2026-03-21
+
+### Changed
+
+- README: npmjs.com rendering — absolute URLs for comparison images and docs links; npm version badge; quick links table (live demo, repository, issues); marketing section leads with hosted demo URL
+
 ## [0.1.1] - 2025-03-20
 
 ### Changed
@@ -75,6 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLI and programmatic API (`mdToPdf`)
 - Configurable Mermaid CDN URL
 
-[Unreleased]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/Ali-Karaki/md-mermaid-pdf/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/Ali-Karaki/md-mermaid-pdf/releases/tag/v0.1.0

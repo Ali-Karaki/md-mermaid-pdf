@@ -1,6 +1,6 @@
 {
 	"name": "md-mermaid-pdf",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Markdown to PDF with Mermaid diagrams that actually render — drop-in replacement for md-to-pdf.",
 	"license": "MIT",
 	"author": "Ali Karaki (https://github.com/Ali-Karaki)",

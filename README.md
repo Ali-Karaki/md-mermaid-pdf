@@ -1,8 +1,13 @@
 # md-mermaid-pdf
 
+[![npm version](https://img.shields.io/npm/v/md-mermaid-pdf.svg)](https://www.npmjs.com/package/md-mermaid-pdf)
 [![CI](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml/badge.svg)](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml)
 
-**Live demo:** [md-mermaid-pdf-site.vercel.app](https://md-mermaid-pdf-site.vercel.app/)
+| | |
+|--|--|
+| **Live demo** | [md-mermaid-pdf-site.vercel.app](https://md-mermaid-pdf-site.vercel.app/) |
+| **Repository** | [github.com/Ali-Karaki/md-mermaid-pdf](https://github.com/Ali-Karaki/md-mermaid-pdf) |
+| **Issues** | [github.com/Ali-Karaki/md-mermaid-pdf/issues](https://github.com/Ali-Karaki/md-mermaid-pdf/issues) |
 
 **Markdown to PDF with Mermaid diagrams that actually render** — a drop-in replacement for md-to-pdf. No more Mermaid shown as plain code blocks; diagrams render in the final PDF.
 
@@ -34,7 +39,7 @@ For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md
 | Before (md-to-pdf) | After (md-mermaid-pdf) |
 |--------------------|------------------------|
 | Mermaid shown as code block | Diagram rendered in PDF |
-| ![Before](assets/before-code-block.svg) | ![After](assets/after-rendered.svg) |
+| ![Before](https://raw.githubusercontent.com/Ali-Karaki/md-mermaid-pdf/main/assets/before-code-block.svg) | ![After](https://raw.githubusercontent.com/Ali-Karaki/md-mermaid-pdf/main/assets/after-rendered.svg) |
 
 Run `npx md-mermaid-pdf examples/sample.md` to see the output. Maintainers: `npm run capture-readme-assets` generates `examples/sample.pdf` and, with [poppler](https://poppler.freedesktop.org/) installed, `assets/readme-sample.png` for README use.
 
@@ -192,11 +197,11 @@ md_mermaid_pdf:
 
 ## Integration recipes
 
-See [docs/recipes.md](docs/recipes.md) for Express, Next.js API route, and GitHub Action snippets.
+See [docs/recipes.md](https://github.com/Ali-Karaki/md-mermaid-pdf/blob/main/docs/recipes.md) for Express, Next.js API route, and GitHub Action snippets.
 
 ## Marketing site and VS Code extension
 
-- **Marketing site / live demo:** [md-mermaid-pdf-site](https://github.com/Ali-Karaki/md-mermaid-pdf-site) — Vite + React; hero, interactive Markdown + Mermaid preview, and marketing sections. Clone that repo and run `npm ci && npm run dev`. Optional local PDF from the UI: `npm run dev:api` plus `VITE_PDF_API=1 npm run dev` (requires Node + Chromium via the `md-mermaid-pdf` package).
+- **Marketing site / live demo:** **[md-mermaid-pdf-site.vercel.app](https://md-mermaid-pdf-site.vercel.app/)** (source: [md-mermaid-pdf-site](https://github.com/Ali-Karaki/md-mermaid-pdf-site)) — Vite + React; hero, interactive Markdown + Mermaid preview, and marketing sections. Clone that repo and run `npm ci && npm run dev`. Optional local PDF from the UI: `npm run dev:api` plus `VITE_PDF_API=1 npm run dev` (requires Node + Chromium via the `md-mermaid-pdf` package).
 - **VS Code extension:** `packages/vscode-md-mermaid-pdf` — Command "Export Markdown to PDF (Mermaid)" for the active editor
 
 ## Module system
@@ -216,8 +221,8 @@ This library is **CommonJS** (`require`). Use `require('md-mermaid-pdf')` in Nod
 |--------|---------|
 | `mdToPdf` | Main entry (default export), mirrors `md-to-pdf` + Mermaid |
 | `mdToPdfAuto` | Zero-config: `mdToPdfAuto(path)` — basedir, dest, mermaidSource auto |
-| `mdToPdfFromFiles` | Concatenate files into one PDF: `mdToPdfFromFiles(paths, config, { separator })` — see [docs/compose.md](docs/compose.md) |
-| `mdToPdfBatch` | Convert multiple files: `mdToPdfBatch(paths, config, { concurrency, incremental, cacheDir })` — see [docs/determinism.md](docs/determinism.md) |
+| `mdToPdfFromFiles` | Concatenate files into one PDF: `mdToPdfFromFiles(paths, config, { separator })` — see [docs/compose.md](https://github.com/Ali-Karaki/md-mermaid-pdf/blob/main/docs/compose.md) |
+| `mdToPdfBatch` | Convert multiple files: `mdToPdfBatch(paths, config, { concurrency, incremental, cacheDir })` — see [docs/determinism.md](https://github.com/Ali-Karaki/md-mermaid-pdf/blob/main/docs/determinism.md) |
 | `DEFAULT_MERMAID_CDN_URL` | Default jsDelivr URL pinned in this package |
 | `createMermaidMarkedRenderer` | Marked renderer for ` ```mermaid ` only |
 | `convertMdToPdfMermaid` | Lower level: HTML → PDF with Mermaid wait (expects merged md-to-pdf config + `browser`) |
