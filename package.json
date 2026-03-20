@@ -16,6 +16,10 @@
 		"markdown",
 		"pdf",
 		"mermaid",
+		"mermaid-diagrams",
+		"markdown-to-pdf",
+		"docs-generator",
+		"diagram-rendering",
 		"md-to-pdf",
 		"puppeteer"
 	],
