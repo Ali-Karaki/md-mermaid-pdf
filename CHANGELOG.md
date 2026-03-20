@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Package keywords: mermaid-diagrams, markdown-to-pdf, docs-generator, diagram-rendering
 - Stronger README tagline
+- README: "Why not md-to-pdf?" comparison table and SEO phrasing for mermaid-not-rendering-pdf
 
 ## [0.1.1] - 2025-03-20
 
