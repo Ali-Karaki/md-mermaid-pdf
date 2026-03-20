@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Smart Mermaid detection: skip Mermaid script when markdown has no ` ```mermaid ` block (faster, no network)
+
 ## [0.1.1] - 2025-03-20
 
 ### Changed

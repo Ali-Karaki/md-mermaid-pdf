@@ -8,6 +8,7 @@ Built on **[md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)** (Marked + P
 
 - Fenced ` ```mermaid ` blocks turned into `<div class="mermaid">` for the browser
 - Mermaid loaded from a CDN (configurable), then `await mermaid.run()` before `page.pdf()`
+- **Smart detection:** If the markdown has no ` ```mermaid ` block, the Mermaid script is skipped (faster, no network)
 
 Requires network access at PDF generation time unless you inject a local script via `config.script`.
 
