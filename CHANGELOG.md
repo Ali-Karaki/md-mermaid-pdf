@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Package keywords: mermaid-diagrams, markdown-to-pdf, docs-generator, diagram-rendering
+- Stronger README tagline
+
 ## [0.1.1] - 2025-03-20
 
 ### Changed

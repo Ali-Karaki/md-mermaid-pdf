@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml/badge.svg)](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml)
 
-Convert Markdown to PDF with **[Mermaid](https://mermaid.js.org/)** diagrams rendered (not shown as plain code blocks).
+**Markdown to PDF with Mermaid diagrams that actually render** — not shown as plain code blocks.
 
 Built on **[md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)** (Marked + Puppeteer). Same configuration surface as `md-to-pdf`, with:
 
