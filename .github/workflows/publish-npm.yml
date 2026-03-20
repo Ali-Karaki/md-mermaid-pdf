@@ -1,0 +1,39 @@
+# Publishes to npm when `main` is updated using npm Trusted Publishing (OIDC).
+# No NPM_TOKEN — configure the workflow + repo on the package's npm "Access" page.
+# Skips if this version is already on the registry (docs-only merges stay green).
+#
+# Package engines: Node ≥20.16, npm ≥10.8 (package.json). This job uses Node 24 because
+# npm Trusted Publishing needs npm ≥11.5.1 and Node ≥22.14 — https://docs.npmjs.com/trusted-publishers
+name: Publish to npm
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # OIDC for Trusted Publishing
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+
+      - run: npm ci
+
+      - name: Publish if version is new
+        run: |
+          set -e
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "${NAME}@${VERSION}" version >/dev/null 2>&1; then
+            echo "${NAME}@${VERSION} is already on npm — skipping publish."
+            exit 0
+          fi
+          npm publish --access public

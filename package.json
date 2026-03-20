@@ -31,7 +31,8 @@
 		"bin"
 	],
 	"engines": {
-		"node": ">=16"
+		"node": ">=20.16.0",
+		"npm": ">=10.8.1"
 	},
 	"dependencies": {
 		"get-port": "^5.1.1",
