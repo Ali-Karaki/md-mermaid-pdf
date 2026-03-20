@@ -22,10 +22,16 @@ flowchart LR
 `;
 
 test('mdToPdf produces PDF buffer from content with mermaid block', async () => {
-	const result = await mdToPdf(
-		{ content: SAMPLE_MD },
-		{ dest: '', basedir: path.join(__dirname, '..') },
-	);
+	const config = {
+		dest: '',
+		basedir: path.join(__dirname, '..'),
+	};
+	if (process.env.CI) {
+		config.launch_options = {
+			args: ['--no-sandbox', '--disable-setuid-sandbox'],
+		};
+	}
+	const result = await mdToPdf({ content: SAMPLE_MD }, config);
 
 	assert.ok(result, 'mdToPdf should return a result');
 	assert.ok(
