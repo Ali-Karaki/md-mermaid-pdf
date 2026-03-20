@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Package } from 'lucide-react'
+import { Github, Package, Globe, FileCode, Terminal, Code2 } from 'lucide-react'
 
 const MotionSection = motion.section
 const MotionLi = motion.li
@@ -15,10 +15,10 @@ function scrollToDemo() {
 }
 
 const trustBullets = [
-  'No install needed for preview — try it in the browser',
-  'Mermaid diagrams rendered, not shown as code blocks',
-  'PDF export runs locally with npx md-mermaid-pdf',
-  'Built for developers — drop-in replacement for md-to-pdf',
+  { text: 'No install needed for preview — try it in the browser', icon: Globe },
+  { text: 'Mermaid diagrams rendered, not shown as code blocks', icon: FileCode },
+  { text: 'PDF export runs locally with npx md-mermaid-pdf', icon: Terminal },
+  { text: 'Built for developers — drop-in replacement for md-to-pdf', icon: Code2 },
 ]
 
 export default function App() {
@@ -68,18 +68,21 @@ export default function App() {
           <Card className="border-border/60">
             <CardContent className="p-6 md:p-8">
               <ul className="grid gap-4 sm:grid-cols-2">
-                {trustBullets.map((text, i) => (
-                  <MotionLi
-                    key={i}
-                    className="flex items-start gap-2 text-sm text-muted-foreground"
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + i * 0.08 }}
-                  >
-                    <span className="text-primary mt-0.5 shrink-0">✓</span>
-                    <span>{text}</span>
-                  </MotionLi>
-                ))}
+                {trustBullets.map((item, i) => {
+                  const BulletIcon = item.icon
+                  return (
+                    <MotionLi
+                      key={i}
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + i * 0.08 }}
+                    >
+                      <BulletIcon className="text-primary mt-0.5 shrink-0 size-4" />
+                      <span>{item.text}</span>
+                    </MotionLi>
+                  )
+                })}
               </ul>
             </CardContent>
           </Card>

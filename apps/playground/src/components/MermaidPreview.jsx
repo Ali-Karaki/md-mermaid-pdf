@@ -1,12 +1,15 @@
 import { useEffect, useRef } from 'react'
 import mermaid from 'mermaid'
 
-export function MermaidPreview({ markdown }) {
+const MERMAID_THEMES = ['neutral', 'dark', 'default', 'forest', 'base']
+
+export function MermaidPreview({ markdown, theme = 'neutral' }) {
   const ref = useRef(null)
 
   useEffect(() => {
-    mermaid.initialize({ startOnLoad: false, theme: 'neutral' })
-  }, [])
+    const validTheme = MERMAID_THEMES.includes(theme) ? theme : 'neutral'
+    mermaid.initialize({ startOnLoad: false, theme: validTheme })
+  }, [theme])
 
   useEffect(() => {
     if (!ref.current) return
@@ -24,7 +27,7 @@ export function MermaidPreview({ markdown }) {
     }
     el.innerHTML = html
     mermaid.run({ nodes: el.querySelectorAll('.mermaid') }).catch(console.error)
-  }, [markdown])
+  }, [markdown, theme])
 
   return <div ref={ref} className="min-h-[200px] p-4" />
 }
