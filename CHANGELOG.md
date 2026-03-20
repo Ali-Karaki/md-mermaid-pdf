@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README: "Why not md-to-pdf?" comparison table and SEO phrasing for mermaid-not-rendering-pdf
 - README: Visual result section with before/after assets
 - Examples: docs/ and slides/ templates with mermaid diagrams
+- Smart Mermaid detection: skip Mermaid script when markdown has no ` ```mermaid ` block (faster, no network)
 
 ## [0.1.1] - 2025-03-20
 
