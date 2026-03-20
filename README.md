@@ -13,6 +13,18 @@ Requires network access at PDF generation time unless you inject a local script 
 
 For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md-to-pdf documentation](https://github.com/simonhaenisch/md-to-pdf#options).
 
+## GitHub Action
+
+A composite action is available in `action/`. Use it in a workflow:
+
+```yaml
+- uses: actions/checkout@v4
+- uses: Ali-Karaki/md-mermaid-pdf/action@main
+  with:
+    input: docs/readme.md
+    output: readme.pdf  # optional
+```
+
 ## Install
 
 Requires **Node ≥ 20.16** and **npm ≥ 10.8** (see `engines` in `package.json`).
