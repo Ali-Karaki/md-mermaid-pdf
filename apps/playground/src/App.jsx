@@ -6,6 +6,7 @@ const MotionLi = motion.li
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { DemoSection } from '@/components/DemoSection'
+import { MarketingSections } from '@/components/MarketingSections'
 
 const NPM_URL = 'https://www.npmjs.com/package/md-mermaid-pdf'
 const GITHUB_URL = 'https://github.com/Ali-Karaki/md-mermaid-pdf'
@@ -88,7 +89,8 @@ export default function App() {
           </Card>
         </MotionSection>
 
-        <div className="w-full px-6">
+        <div className="w-full px-6 flex flex-col items-center">
+          <MarketingSections />
           <DemoSection />
         </div>
       </main>
