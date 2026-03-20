@@ -1,10 +1,8 @@
-# Publishes to npm when `main` is updated. Skips if `package.json` version
-# already exists on the registry (so docs-only merges stay green).
+# Publishes to npm when `main` is updated using npm Trusted Publishing (OIDC).
+# No NPM_TOKEN — configure the workflow + repo on the package's npm "Access" page.
+# Skips if this version is already on the registry (docs-only merges stay green).
 #
-# Setup: Repo → Settings → Secrets and variables → Actions → New repository secret
-#   Name:  NPM_TOKEN
-#   Value: npm granular access token (type Automation) with publish permission.
-#   https://docs.npmjs.com/about-access-tokens
+# Requires: npm CLI ≥ 11.5.1, Node ≥ 22.14 — see https://docs.npmjs.com/trusted-publishers
 name: Publish to npm
 
 on:
@@ -16,20 +14,19 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
+      id-token: write # OIDC for Trusted Publishing
       contents: read
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: https://registry.npmjs.org
 
       - run: npm ci
 
       - name: Publish if version is new
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           set -e
           NAME=$(node -p "require('./package.json').name")
