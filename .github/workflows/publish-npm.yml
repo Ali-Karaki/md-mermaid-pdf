@@ -1,9 +1,14 @@
 # Publishes to npm when `main` is updated using npm Trusted Publishing (OIDC).
-# No NPM_TOKEN — configure the workflow + repo on the package's npm "Access" page.
-# Skips if this version is already on the registry (docs-only merges stay green).
+# No NPM_TOKEN — configure workflow filename + repo on the package npm "Access" page.
 #
-# Package engines: Node ≥20.16, npm ≥10.8 (package.json). This job uses Node 24 because
-# npm Trusted Publishing needs npm ≥11.5.1 and Node ≥22.14 — https://docs.npmjs.com/trusted-publishers
+# If npm shows ENEEDAUTH / misleading 404s, see https://github.com/npm/cli/issues/9088
+# and https://philna.sh/blog/2026/01/28/trusted-publishing-npm/
+#
+# If you set a GitHub *Environment* in the npm Trusted Publisher form, add the same here:
+#   jobs.publish.environment: <name>
+#
+# Package engines vs this job: Node 24 + latest npm satisfies Trusted Publishing
+# (npm ≥11.5.1, Node ≥22.14) — https://docs.npmjs.com/trusted-publishers
 name: Publish to npm
 
 on:
@@ -11,23 +16,28 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write # OIDC for Trusted Publishing
-      contents: read
     steps:
       - uses: actions/checkout@v4
 
-      # No registry-url here: setup-node would set NODE_AUTH_TOKEN (GitHub token) for
-      # registry.npmjs.org and npm publish would use that instead of OIDC → bogus E404.
-      # All dependencies are public; add registry-url + NPM_READ_TOKEN only if you need private packages.
+      # No registry-url: it wires NODE_AUTH_TOKEN (GitHub token) into npmrc → publish uses
+      # that instead of OIDC and the registry returns bogus E404. For private npm deps,
+      # use registry-url only on an npm ci step with secrets.NPM_READ_TOKEN.
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
 
       - run: npm ci
+
+      # Ensure OIDC-capable CLI (bundled npm can lag; avoids misleading ENEEDAUTH).
+      - name: Use latest npm
+        run: npm install -g npm@latest
 
       - name: Publish if version is new
         run: |
@@ -38,4 +48,4 @@ jobs:
             echo "${NAME}@${VERSION} is already on npm — skipping publish."
             exit 0
           fi
-          npm publish --access public
+          npm publish --access public --provenance
