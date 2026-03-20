@@ -32,7 +32,8 @@
 		}
 	},
 	"bin": {
-		"md-mermaid-pdf": "bin/cli.js"
+		"md-mermaid-pdf": "bin/cli.js",
+		"mmdpdf": "bin/cli.js"
 	},
 	"files": [
 		"lib",

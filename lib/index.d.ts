@@ -14,10 +14,21 @@ export function mdToPdf(
 	config?: MdMermaidPdfConfig,
 ): Promise<{ filename?: string; content: Buffer } | undefined>;
 
+export function mdToPdfAuto(
+	inputPath: string,
+	partialConfig?: MdMermaidPdfConfig,
+): Promise<{ filename?: string; content: Buffer } | undefined>;
+
+export function mdToPdfFromFiles(
+	paths: string[],
+	config?: MdMermaidPdfConfig,
+	options?: { separator?: string },
+): Promise<{ filename?: string; content: Buffer } | undefined>;
+
 export function mdToPdfBatch(
 	paths: string[],
 	config?: MdMermaidPdfConfig,
-	options?: { concurrency?: number },
+	options?: { concurrency?: number; incremental?: boolean; cacheDir?: string },
 ): Promise<Array<{ filename?: string; content: Buffer } | undefined>>;
 
 export function createMermaidMarkedRenderer(): import('marked').Renderer;
