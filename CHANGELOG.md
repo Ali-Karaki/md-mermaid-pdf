@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `mdToPdfBatch(paths, config, { concurrency })` — batch conversion
+- CLI: multiple input files `md-mermaid-pdf a.md b.md`
+
 ## [0.1.1] - 2025-03-20
 
 ### Changed
