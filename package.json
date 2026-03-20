@@ -3,10 +3,14 @@
 	"version": "0.1.1",
 	"description": "Markdown to PDF with Mermaid diagrams via Puppeteer (builds on md-to-pdf).",
 	"license": "MIT",
-	"author": "",
+	"author": "Ali Karaki (https://github.com/Ali-Karaki)",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Ali-Karaki/md-mermaid-pdf.git"
+	},
+	"homepage": "https://github.com/Ali-Karaki/md-mermaid-pdf#readme",
+	"bugs": {
+		"url": "https://github.com/Ali-Karaki/md-mermaid-pdf/issues"
 	},
 	"keywords": [
 		"markdown",
