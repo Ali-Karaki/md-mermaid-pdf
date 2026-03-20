@@ -36,6 +36,17 @@ For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md
 
 Run `npx md-mermaid-pdf examples/sample.md` to see the output.
 
+## Docker
+
+Build and run with Docker:
+
+```bash
+docker build -t md-mermaid-pdf .
+docker run --rm -v "$(pwd):/work" -w /work md-mermaid-pdf input.md output.pdf
+```
+
+Mount your working directory at `/work` so the container can read your markdown and write the PDF.
+
 ## GitHub Action
 
 A composite action is available in `action/`. Use it in a workflow:
@@ -47,7 +58,6 @@ A composite action is available in `action/`. Use it in a workflow:
     input: docs/readme.md
     output: readme.pdf  # optional
 ```
-
 ## Install
 
 Requires **Node ≥ 20.16** and **npm ≥ 10.8** (see `engines` in `package.json`).

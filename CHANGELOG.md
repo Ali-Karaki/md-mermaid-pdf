@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Docker: `Dockerfile` and README section for containerized usage
 - GitHub Action: composite action in `action/` wrapping `npx md-mermaid-pdf`
 - `mermaidExportImages` — export Mermaid diagrams to PNG or SVG
 - `failOnMermaidError: true` — throw on Mermaid parse errors
