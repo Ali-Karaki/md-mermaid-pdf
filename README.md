@@ -95,6 +95,7 @@ await mdToPdf({ path: 'doc.md' }, {
 ```bash
 npx md-mermaid-pdf input.md
 npx md-mermaid-pdf input.md output.pdf
+npx md-mermaid-pdf a.md b.md c.md   # batch: each writes alongside
 npx md-mermaid-pdf examples/sample.md
 ```
 
@@ -114,6 +115,7 @@ This library is **CommonJS** (`require`). Use `require('md-mermaid-pdf')` in Nod
 | Export | Purpose |
 |--------|---------|
 | `mdToPdf` | Main entry (default export), mirrors `md-to-pdf` + Mermaid |
+| `mdToPdfBatch` | Convert multiple files: `mdToPdfBatch(paths, config, { concurrency })` |
 | `DEFAULT_MERMAID_CDN_URL` | Default jsDelivr URL pinned in this package |
 | `createMermaidMarkedRenderer` | Marked renderer for ` ```mermaid ` only |
 | `convertMdToPdfMermaid` | Lower level: HTML → PDF with Mermaid wait (expects merged md-to-pdf config + `browser`) |

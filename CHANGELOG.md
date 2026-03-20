@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `mdToPdfBatch(paths, config, { concurrency })` — batch conversion
+- CLI: multiple input files `md-mermaid-pdf a.md b.md`
 - `beforeRender(page)`, `afterRender(page)` — async hooks for injecting CSS, tweak DOM
 - `debug: true` — write intermediate HTML to `.md-mermaid-pdf-debug.html`, log Mermaid errors to stderr
 - `mermaidWaitUntil`, `mermaidRenderTimeoutMs` — tune Mermaid render wait for CI-safe builds
