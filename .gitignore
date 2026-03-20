@@ -1,5 +1,6 @@
 node_modules/
 *.log
+.md-mermaid-pdf-debug.html
 .DS_Store
 examples/diagrams/
 examples/*.pdf

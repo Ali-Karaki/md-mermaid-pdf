@@ -14,6 +14,12 @@ export function mdToPdf(
 	config?: MdMermaidPdfConfig,
 ): Promise<{ filename?: string; content: Buffer } | undefined>;
 
+export function mdToPdfBatch(
+	paths: string[],
+	config?: MdMermaidPdfConfig,
+	options?: { concurrency?: number },
+): Promise<Array<{ filename?: string; content: Buffer } | undefined>>;
+
 export function createMermaidMarkedRenderer(): import('marked').Renderer;
 
 export function convertMdToPdfMermaid(
