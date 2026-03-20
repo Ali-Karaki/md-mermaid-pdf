@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `debug: true` — write intermediate HTML to `.md-mermaid-pdf-debug.html`, log Mermaid errors to stderr
 - `mermaidWaitUntil`, `mermaidRenderTimeoutMs` — tune Mermaid render wait for CI-safe builds
 - Package keywords: mermaid-diagrams, markdown-to-pdf, docs-generator, diagram-rendering
 - Stronger README tagline
