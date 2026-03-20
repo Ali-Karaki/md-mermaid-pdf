@@ -21,6 +21,15 @@ Requires network access at PDF generation time unless you inject a local script 
 
 For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md-to-pdf documentation](https://github.com/simonhaenisch/md-to-pdf#options).
 
+### Visual result
+
+| Before (md-to-pdf) | After (md-mermaid-pdf) |
+|--------------------|------------------------|
+| Mermaid shown as code block | Diagram rendered in PDF |
+| ![Before](assets/before-code-block.svg) | ![After](assets/after-rendered.svg) |
+
+Run `npx md-mermaid-pdf examples/sample.md` to see the output.
+
 ## Install
 
 Requires **Node ≥ 20.16** and **npm ≥ 10.8** (see `engines` in `package.json`).
