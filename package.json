@@ -32,7 +32,8 @@
 	},
 	"files": [
 		"lib",
-		"bin"
+		"bin",
+		"presets"
 	],
 	"scripts": {
 		"test": "node --test test/"
