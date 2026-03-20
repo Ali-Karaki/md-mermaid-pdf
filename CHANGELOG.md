@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- CLI `--theme`, `--mermaid-source`, `--document-theme` — Mermaid theme and source selection
+- CLI glob expansion (fast-glob): `npx md-mermaid-pdf "docs/**/*.md"`
+- CLI stdout: `-o -` writes PDF to stdout for piping
+- CDN preflight fallback: when `mermaidSource` is CDN or auto, preflight CDN and fall back to bundled Mermaid on failure
+- `mermaidAutofix: true` — optional regex transforms on mermaid blocks (e.g. trim trailing whitespace)
+- `documentTheme: 'light' | 'dark'` — preset body styles for dark/light PDF pages
+- `outputCache: true | { dir }` — hash-based cache to skip conversion when input unchanged
+- `hashOutput: true` — emit `<dest>.sha256` sidecar after PDF write
+- Front matter `md_mermaid_pdf:` namespace — nest options to avoid YAML collisions (see README)
+- Examples: `report/report.md`, docs/slides README pointers
+- `scripts/capture-readme-assets.mjs` — generate sample.pdf and PNG screenshots (poppler)
+- NestJS recipe in [docs/recipes.md](docs/recipes.md)
+- Playground: optional local PDF API (`npm run dev:api`) + `VITE_PDF_API=1` for real PDF export
 - `mdToPdfAuto(inputPath, partialConfig?)` — zero-config: basedir, dest beside input, mermaidSource auto
 - CLI alias: `npx mmdpdf` (shorter than `md-mermaid-pdf`)
 - `docs/recipes.md` — integration snippets for Express, Next.js API route, GitHub Action

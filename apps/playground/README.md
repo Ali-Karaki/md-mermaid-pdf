@@ -1,8 +1,6 @@
 # md-mermaid-pdf playground
 
-A minimal web demo for md-mermaid-pdf. Paste Markdown with Mermaid blocks, preview rendered output, and (mock) export PDF.
-
-**Note:** Real PDF generation requires Node + Puppeteer and runs server-side. This app renders Mermaid in-browser for preview; the "Export PDF" action is a placeholder. Use `npx md-mermaid-pdf` for actual PDF generation.
+A minimal web demo for md-mermaid-pdf. Paste Markdown with Mermaid blocks and preview rendered output. Use the CLI for PDF generation, or run the optional local PDF API for real PDF export from the UI.
 
 ## Run
 
@@ -11,3 +9,12 @@ cd apps/playground
 npm install
 npm run dev
 ```
+
+## Optional: real PDF from playground
+
+For "Generate PDF (local)" in the Export dialog:
+
+1. Run the PDF API: `npm run dev:api` (in a separate terminal)
+2. Start the app with `VITE_PDF_API=1 npm run dev`
+
+Requires Node + Chromium (Puppeteer). The API is local-only; not for static deploys unless hosted separately.

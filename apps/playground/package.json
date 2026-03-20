@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "node server/pdf-api.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

@@ -1,0 +1,21 @@
+/* Dark document theme: dark background, light text */
+body {
+	background-color: #111827 !important;
+	color: #f3f4f6 !important;
+}
+
+a {
+	color: #93c5fd;
+}
+
+code,
+pre {
+	background-color: #1f2937 !important;
+	color: #e5e7eb !important;
+	border-color: #374151 !important;
+}
+
+blockquote {
+	border-left-color: #60a5fa;
+	color: #9ca3af;
+}

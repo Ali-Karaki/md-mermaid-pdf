@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml/badge.svg)](https://github.com/Ali-Karaki/md-mermaid-pdf/actions/workflows/ci.yml)
 
-**Markdown to PDF with Mermaid diagrams that actually render** — not shown as plain code blocks. Fixes the common issue of [Mermaid not rendering in PDFs](https://github.com/simonhaenisch/md-to-pdf/issues) when using markdown-to-pdf tools.
+**Markdown to PDF with Mermaid diagrams that actually render** — a drop-in replacement for md-to-pdf. No more Mermaid shown as plain code blocks; diagrams render in the final PDF.
 
 ### Why not md-to-pdf?
 
@@ -34,7 +34,7 @@ For `pdf_options`, `launch_options`, stylesheets, and other options, see the [md
 | Mermaid shown as code block | Diagram rendered in PDF |
 | ![Before](assets/before-code-block.svg) | ![After](assets/after-rendered.svg) |
 
-Run `npx md-mermaid-pdf examples/sample.md` to see the output.
+Run `npx md-mermaid-pdf examples/sample.md` to see the output. Maintainers: `npm run capture-readme-assets` generates `examples/sample.pdf` and, with [poppler](https://poppler.freedesktop.org/) installed, `assets/readme-sample.png` for README use.
 
 ## Docker
 
@@ -151,8 +151,41 @@ npx md-mermaid-pdf input.md --watch   # rebuild on save
 npx md-mermaid-pdf slides.md --slides   # slides preset
 npx md-mermaid-pdf a.md b.md c.md   # batch: each writes alongside
 npx md-mermaid-pdf --concat a.md b.md -o book.pdf   # single PDF from multiple files
+npx md-mermaid-pdf "docs/**/*.md"   # glob: expand to .md files
+npx md-mermaid-pdf input.md -o -   # write PDF to stdout
+npx md-mermaid-pdf input.md --theme dark   # Mermaid theme
 npx mmdpdf input.md   # shorter alias
 npx md-mermaid-pdf examples/sample.md
+```
+
+## Front matter
+
+YAML front matter at the top of your markdown is parsed and merged into the config. Supported keys include `mermaidConfig`, `preset`, `toc`, `documentTheme`, `pdf_options`, and other md-to-pdf options.
+
+```yaml
+---
+preset: github
+toc: true
+documentTheme: dark
+mermaidConfig:
+  theme: forest
+pdf_options:
+  format: A4
+  margin: 20mm
+---
+```
+
+To avoid collisions with unrelated YAML (e.g. CMS metadata), nest options under `md_mermaid_pdf`:
+
+```yaml
+---
+title: My doc
+md_mermaid_pdf:
+  preset: slides
+  toc: true
+  mermaidConfig:
+    theme: dark
+---
 ```
 
 ## Integration recipes
@@ -161,7 +194,7 @@ See [docs/recipes.md](docs/recipes.md) for Express, Next.js API route, and GitHu
 
 ## Playground and VS Code extension
 
-- **Playground:** `apps/playground` — Vite + React demo; Vercel/Stripe-style marketing site with hero, demo, and marketing sections. Paste Markdown, preview Mermaid (PDF export is mock; use CLI for real export)
+- **Playground:** `apps/playground` — Vite + React demo; Vercel/Stripe-style marketing site with hero, demo, and marketing sections. Paste Markdown, preview Mermaid. For real PDF export from the playground, run `npm run dev:api` in `apps/playground` (starts a local PDF API) and `VITE_PDF_API=1 npm run dev` — requires Node + Chromium; not for static-only deploy unless you host the API separately.
 - **VS Code extension:** `packages/vscode-md-mermaid-pdf` — Command "Export Markdown to PDF (Mermaid)" for the active editor
 
 ## Module system
