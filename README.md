@@ -5,7 +5,6 @@
 
 | | |
 |--|--|
-| **Live demo** | [md-mermaid-pdf-site on Railway](https://md-mermaid-pdf-site-production.up.railway.app/) (update if you use a custom domain) |
 | **Repository** | [github.com/Ali-Karaki/md-mermaid-pdf](https://github.com/Ali-Karaki/md-mermaid-pdf) |
 | **Issues** | [github.com/Ali-Karaki/md-mermaid-pdf/issues](https://github.com/Ali-Karaki/md-mermaid-pdf/issues) |
 
